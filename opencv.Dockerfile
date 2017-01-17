@@ -8,7 +8,8 @@ RUN apt-get update && apt-get install -y \
     curl \
     gfortran \
     libjpeg-dev libtiff-dev libjasper-dev libpng12-dev \
-    libavcodec-dev libavformat-dev libswscale-dev libv4l-dev \
+    libavcodec-dev libavformat-dev libswscale-dev libeigen3-dev \
+    libunicap2-dev libv4l-0 libv4l-dev v4l-utils \
     libatlas-dev \
     libgtk2.0-dev \
     python-dev \
