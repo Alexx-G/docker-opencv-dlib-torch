@@ -3,31 +3,31 @@ MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 
 RUN ["cross-build-start"]
 
+# Build tools
 RUN apt-get update && apt-get install -y \
-    build-essential cmake pkg-config apt-utils clang \
-    curl \
-    gfortran \
-    libjpeg-dev libtiff-dev libjasper-dev libpng12-dev \
-    libavcodec-dev libavformat-dev libswscale-dev libeigen3-dev \
-    libunicap2-dev libv4l-0 libv4l-dev v4l-utils \
-    libatlas-dev \
-    libgtk2.0-dev \
-    python-dev \
-    python-numpy \
-    python-protobuf\
-    unzip \
-    software-properties-common \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    build-essential cmake git pkg-config gfortran \
+    unzip curl \
 
-ENV CC /usr/bin/clang
-ENV CXX /usr/bin/clang++
+# Required deps and codecs
+RUN apt-get install -y \
+    gfortran \
+    libgtk2.0-dev \
+    libavcodec-dev libavformat-dev libswscale-dev \
+    libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev \
+    python-dev python-numpy
+
+# Additional libs and deps
+RUN apt-get install -y \
+    libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev \
+    libv4l-dev libxvidcore-dev x264 v4l-utils \
+    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN cd ~ && \
     mkdir -p ocv-tmp && \
     cd ocv-tmp && \
-    curl -L https://github.com/Itseez/opencv/archive/2.4.11.zip -o ocv.zip && \
+    curl -L https://github.com/Itseez/opencv/archive/2.4.13.zip -o ocv.zip && \
     unzip ocv.zip && \
-    cd opencv-2.4.11 && \
+    cd opencv-2.4.13 && \
     mkdir release && \
     cd release && \
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
@@ -36,7 +36,7 @@ RUN cd ~ && \
           -D BUILD_TESTS=NO \
           -D BUILD_PERF_TESTS=NO \
           .. && \
-    make -j8 && \
+    make -j2 && \
     make install && \
     rm -rf ~/ocv-tmp
 
