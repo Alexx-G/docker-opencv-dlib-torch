@@ -1,4 +1,4 @@
-FROM jsurf/rpi-raspbian:latest
+FROM gavrisco/rpi-raspbian:latest
 MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 
 RUN ["cross-build-start"]
