@@ -6,7 +6,7 @@ RUN ["cross-build-start"]
 # Build tools
 RUN apt-get update && apt-get install -y \
     build-essential cmake git pkg-config gfortran \
-    unzip curl \
+    unzip curl
 
 # Required deps and codecs
 RUN apt-get install -y \
