@@ -1,6 +1,8 @@
 FROM gavrisco/rpi-opencv:v2.4.13
 MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 
+RUN ["cross-build-start"]
+
 # Deps
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -49,3 +51,5 @@ RUN cd ~ && \
     cmake --build . --config Release && \
     cp dlib.so /usr/local/lib/python2.7/dist-packages && \
     rm -rf ~/dlib-tmp
+
+RUN ["cross-build-END"]
