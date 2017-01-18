@@ -1,4 +1,4 @@
-FROM gavrisco/rpi-opencv:v2.4.13
+FROM gavrisco/rpi-opencv:v2.4.13-1
 MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 
 RUN ["cross-build-start"]
