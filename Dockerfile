@@ -4,7 +4,7 @@ MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 # Deps
 RUN apt-get update && apt-get install -y \
     build-essential \
-    cmake \
+    cmake clang \
     curl \
     git \
     graphicsmagick \
@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     zip \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV CMAKE_C_COMPILER=clang
+ENV CMAKE_CXX_COMPILER=clang++
 
 # Build Torch
 RUN git clone https://github.com/torch/distro.git ~/torch --recursive
