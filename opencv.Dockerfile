@@ -18,7 +18,7 @@ RUN apt-get install -y \
 
 # Additional libs and deps
 RUN apt-get install -y \
-    libxine-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev \
+    libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev \
     libv4l-dev libxvidcore-dev x264 v4l-utils \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
