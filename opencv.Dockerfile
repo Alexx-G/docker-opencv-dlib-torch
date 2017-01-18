@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y \
 
 # Required deps and codecs
 RUN apt-get install -y \
-    gfortran \
+    libopencv-dev gfortran \
     libgtk2.0-dev \
     libavcodec-dev libavformat-dev libswscale-dev \
-    libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev \
+    libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev \
     python-dev python-numpy
 
 # Additional libs and deps
