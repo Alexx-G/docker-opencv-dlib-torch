@@ -1,4 +1,4 @@
-FROM gavrisco/rpi-opencv:2.4.13
+FROM gavrisco/rpi-opencv:v2.4.13
 MAINTAINER Alex Gavrisco <alexandr@gavrisco.com>
 
 # Deps
