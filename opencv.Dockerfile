@@ -25,9 +25,9 @@ RUN apt-get install -y \
 RUN cd ~ && \
     mkdir -p ocv-tmp && \
     cd ocv-tmp && \
-    curl -L https://github.com/Itseez/opencv/archive/2.4.13.zip -o ocv.zip && \
+    curl -L https://github.com/opencv/opencv/archive/3.2.0.zip -o ocv.zip && \
     unzip ocv.zip && \
-    cd opencv-2.4.13 && \
+    cd opencv-3.2.0 && \
     mkdir release && \
     cd release && \
     cmake -D CMAKE_BUILD_TYPE=RELEASE \
